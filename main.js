@@ -19,8 +19,8 @@ const entryPoint = async () => {
     let resultCounter = 0
 
     const validateAPIKey = (key) => {
-        if ( !fs.existsSync('.apikey') ) return true
-        return key === (fs.readFileSync('.apikey', 'utf8')).trim()
+        if ( !process.env.NSFWD_APIKEY ) return true
+        return key === process.env.NSFWD_APIKEY
     }
 
     const response = (res, code, data = null) => {
